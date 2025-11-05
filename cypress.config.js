@@ -5,7 +5,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-      //baseUrl: 'https://example.com/',
+      baseUrl: 'https://qauto.forstudy.space',
       specPattern: 'cypress/e2e/**/*.{spec,test,cy}.{js,jsx,ts,tsx}',
       supportFile: 'cypress/support/e2e.js',
       viewportWidth: 1920,
