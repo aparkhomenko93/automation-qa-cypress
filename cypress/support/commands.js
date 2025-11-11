@@ -31,4 +31,31 @@ Cypress.Commands.overwrite('visit', (originalFn, url, options) => {
             password: "welcome2qauto",
         },
     });
+});
+
+Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
+    if (options && options.sensitive) {
+        // turn off original log
+        options.log = false
+        // create our own log with masked message
+        Cypress.log({
+            $el: element,
+            name: 'type',
+            message: '*'.repeat(text.length),
+        })
+    }
+
+    return originalFn(element, text, options)
 })
+
+Cypress.Commands.add("Login", user => {
+    cy.visit("/");
+
+    //Logging in
+    cy.get("div.header_inner button.header_signin").click();
+    cy.get("h4.modal-title").should("have.text", "Log in");
+    cy.get("#signinEmail").type(user.email);
+    cy.get("#signinPassword").type(user.password);
+    cy.get("div.modal-content button.btn-primary").click();
+    cy.get("div.panel-page_cars p").should("have.text", "You don’t have any cars in your garage")
+});
