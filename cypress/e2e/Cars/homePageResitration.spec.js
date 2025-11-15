@@ -319,3 +319,4 @@ describe("Check registration", () => {
         cy.Login(user);
     })
 })
+
