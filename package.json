@@ -12,5 +12,8 @@
     "merge-reports": "npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json",
     "generate-report": "npx marge mochawesome.json",
     "report": "npm run merge-reports && npm run generate-report"
+  },
+  "dependencies": {
+    "cypress-plugin-api": "^2.11.2"
   }
 }

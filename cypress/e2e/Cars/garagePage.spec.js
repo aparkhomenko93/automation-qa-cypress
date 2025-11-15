@@ -2,7 +2,7 @@ import { garagePage } from "../../pages/GaragePage";
 import { faker } from '@faker-js/faker';
 
 
-describe.only("Check adding car to garage", () => {
+describe("Check adding car to garage", () => {
     //Test user
     const user = {
         firstName: faker.person.firstName(),
